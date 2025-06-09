@@ -1,0 +1,19 @@
+:root {
+	--white: rgb(255, 255, 255);
+	--off-white: rgb(237, 237, 237);
+	--off-grey: rgb(180, 180, 180);
+	--middle-green: rgb(30, 130, 30);
+	--end-green: rgb(17, 72, 17);
+	--purple-slush: rgb(150, 90, 219);
+	--red-riot: rgb(137, 20, 20);
+}
+
+body {
+	min-height: 100vh;
+
+	background: linear-gradient(
+		135deg,
+		var(--off-grey) 0%,
+		var(--purple-slush) 100%
+	);
+}
