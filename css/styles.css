@@ -7,8 +7,10 @@
 	--background-start: rgba(20, 0, 113, 1);
 	--background-middle: rgba(10, 0, 85, 1);
 	--background-end: rgba(1, 0, 62, 1);
+	--footer: rgba(35, 0, 140, 1);
 	--sky-blue: #0acffe;
 	--key-purple: #495aff;
+	--primary: #0d6efd;
 }
 
 body {
@@ -54,4 +56,20 @@ h1 {
 		var(--off-grey) 90%,
 		var(--headshot-background) 100%
 	);
+}
+
+#meet-the-team .card {
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#meet-the-team .card:hover {
+	transform: translateY(-5px);
+}
+
+#meet-the-team .card img {
+	transition: 0.1s ease-in-out;
+}
+
+footer {
+	background-color: var(--footer);
 }
