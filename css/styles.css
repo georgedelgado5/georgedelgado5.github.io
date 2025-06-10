@@ -11,6 +11,8 @@
 	--sky-blue: #0acffe;
 	--key-purple: #495aff;
 	--primary: #0d6efd;
+	--accordion-blue: #0c63e4;
+	--accordion-background: #e7f1ff;
 }
 
 body {
@@ -39,6 +41,11 @@ nav {
 
 h1 {
 	color: var(--white);
+}
+
+.accordion-button:not(.collapsed) {
+	color: var(--black);
+	background-color: var(--white);
 }
 
 .content-card {
