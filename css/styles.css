@@ -1,19 +1,57 @@
 :root {
 	--white: rgb(255, 255, 255);
+	--black: rgb(0, 0, 0);
 	--off-white: rgb(237, 237, 237);
 	--off-grey: rgb(180, 180, 180);
-	--middle-green: rgb(30, 130, 30);
-	--end-green: rgb(17, 72, 17);
-	--purple-slush: rgb(150, 90, 219);
-	--red-riot: rgb(137, 20, 20);
+	--headshot-background: #485050;
+	--background-start: rgba(20, 0, 113, 1);
+	--background-middle: rgba(10, 0, 85, 1);
+	--background-end: rgba(1, 0, 62, 1);
+	--sky-blue: #0acffe;
+	--key-purple: #495aff;
 }
 
 body {
 	min-height: 100vh;
 
-	background: linear-gradient(
-		135deg,
-		var(--off-grey) 0%,
-		var(--purple-slush) 100%
+	background-image: linear-gradient(
+		to top,
+		var(--background-start) 21.3%,
+		var(--background-middle) 48.4%,
+		var(--background-end) 91.3%
+	);
+}
+
+nav {
+	background-image: linear-gradient(
+		to bottom,
+		var(--key-purple) 0%,
+		var(--background-start) 98%,
+		var(--headshot-background) 100%
+	);
+}
+
+.navbar a {
+	color: var(--black);
+}
+
+h1 {
+	color: var(--white);
+}
+
+.content-card {
+	background-color: var(--white);
+	padding: 3rem;
+	border-radius: 1rem;
+	box-shadow: 0.1rem 0.1rem 0.8rem var(--black);
+	margin-bottom: 3rem;
+}
+
+#meet-the-team .rounded-circle img {
+	background: radial-gradient(
+		var(--white) 60%,
+		var(--off-white) 65%,
+		var(--off-grey) 90%,
+		var(--headshot-background) 100%
 	);
 }
