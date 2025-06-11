@@ -10,10 +10,11 @@
 	--footer: rgba(35, 0, 140, 1);
 	--sky-blue: #0acffe;
 	--key-purple: #495aff;
+	--key-purple-darker: #2e42fb;
 	--primary: #0d6efd;
 	--accordion-blue: #0c63e4;
 	--accordion-background: #e7f1ff;
-	--yellow: #ffc107;
+	--nav-link-text: rgba(255, 255, 255, 0.839);
 }
 
 body {
@@ -36,8 +37,8 @@ nav {
 	);
 }
 
-.navbar a {
-	color: var(--black);
+.navbar-dark .navbar-nav .nav-link {
+	color: var(--nav-link-text);
 }
 
 h1 {
@@ -88,4 +89,28 @@ h1 {
 
 footer {
 	background-color: var(--footer);
+}
+
+#homeButton {
+	color: var(--white);
+	background-color: var(--key-purple);
+	position: fixed;
+	right: 18px;
+	bottom: 20px;
+	border: none;
+	outline: none;
+	padding: 8px 10px;
+	display: none;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+#homeButton.show {
+	display: block;
+	opacity: 1;
+}
+
+#homeButton:hover {
+	background-color: var(--key-purple-darker);
+	transform: translateY(-2px);
 }

@@ -1,27 +1,57 @@
 import anime from "https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.es.js";
 
-const url = "https://www.medel.com/en-us/digital-showroom#rondo3";
-
-//need to finish function
-//Goal is to prevent redirecting to new page if link is broken
-function fetchData(url) {
-	fetch(url)
-		.then((response) => {
-			console.log("Got data!");
-		})
-		.catch((error) => {
-			console.log("Unable to get URL.");
-		});
-}
-
 const $doc = $(document);
-
 $doc.ready(() => {
-	renderElements();
-	webEffects();
+	teamEffects();
+	renderDiagram();
+	createButton();
+	returnHome();
 });
 
-function renderElements() {
+function teamEffects() {
+	$(".card").on("mouseenter mouseleave", function (event) {
+		const $image = $(this).find("img");
+		if (event.type === "mouseenter") {
+			$image.css("border", "4px solid var(--primary)");
+		} else {
+			$image.css("border", "none");
+		}
+	});
+}
+
+function createButton() {
+	$("body").append(
+		$("<button>")
+			.attr({ id: "homeButton" })
+			.addClass("rounded-circle")
+			.append($("<span>"))
+			.css("zIndex", 10)
+			.append(
+				$("<span>")
+					.attr({ class: "material-symbols-outlined" })
+					.text("arrow_upward")
+			)
+	);
+}
+
+function returnHome() {
+	const buttonShow = 300;
+	const button = $("#homeButton");
+
+	$(window).scroll(() => {
+		const currentLocation = $(window).scrollTop();
+
+		if (currentLocation > buttonShow) button.addClass("show");
+		else button.removeClass("show");
+	});
+
+	button.click(() => {
+		button.removeClass("show");
+		$("html, body").animate({ scrollTop: 0 }, 200);
+	});
+}
+
+function renderDiagram() {
 	const soundType = [
 		["Sound Waves", "Hair Cells", "Nerve Signals", "Cochlea"],
 
@@ -41,10 +71,8 @@ function renderElements() {
 	let i = 0;
 	let j = 0;
 	$("#hearing-processes").click(function () {
-		console.log("soundType", soundType);
 		for (const item of soundType[i]) {
 			++j;
-			console.log(item);
 			$("#diagram").append(
 				$("<div>")
 					.attr({
@@ -65,8 +93,6 @@ function renderElements() {
 				easing: "easeInOutQuad",
 			});
 		}
-
-		console.log(i);
 	});
 
 	$("#next-diagram").click(() => {
@@ -75,7 +101,6 @@ function renderElements() {
 			i++;
 			$("#diagram").empty();
 			for (const item of soundType[i]) {
-				console.log(item);
 				++j;
 				$("#diagram").append(
 					$("<div>")
@@ -99,7 +124,6 @@ function renderElements() {
 					easing: "easeInOutQuad",
 				});
 			}
-			console.log(i);
 		}
 	});
 
@@ -110,7 +134,6 @@ function renderElements() {
 			$("#diagram").empty();
 			for (const item of soundType[i]) {
 				++j;
-				console.log(item);
 				$("#diagram").append(
 					$("<div>")
 						.attr({
@@ -132,7 +155,6 @@ function renderElements() {
 					easing: "easeInOutQuad",
 				});
 			}
-			console.log(i);
 		}
 	});
 
@@ -140,16 +162,5 @@ function renderElements() {
 		i = 0;
 		j = 0;
 		$("#diagram").empty();
-	});
-}
-
-function webEffects() {
-	$(".card").on("mouseenter mouseleave", function (event) {
-		const $image = $(this).find("img");
-		if (event.type === "mouseenter") {
-			$image.css("border", "4px solid var(--primary)");
-		} else {
-			$image.css("border", "none");
-		}
 	});
 }
