@@ -46,7 +46,7 @@ function renderElements() {
 	let i = 0;
 	$("#hearing-processes").click(function () {
 		console.log("soundType", soundType);
-		for (const item of soundType[i++]) {
+		for (const item of soundType[i]) {
 			console.log(item);
 			$(".modal-body").append(
 				$("<div>")
@@ -54,12 +54,31 @@ function renderElements() {
 					.append($("<h4>").text([item]).attr({ class: "text-center" }))
 			);
 		}
+		console.log(i);
 	});
 
 	$("#next-diagram").click(() => {
-		if (i < soundType.length) {
+		if (i < soundType.length - 1) {
+			i++;
 			$(".modal-body").empty();
-			for (const item of soundType[i++]) {
+			for (const item of soundType[i]) {
+				console.log(item);
+
+				$(".modal-body").append(
+					$("<div>")
+						.attr({ class: "container h-100 shadow-sm border border-dark" })
+						.append($("<h4>").text([item]).attr({ class: "text-center" }))
+				);
+			}
+			console.log(i);
+		}
+	});
+
+	$("#previous-diagram").click(() => {
+		if (i > 0) {
+			i--;
+			$(".modal-body").empty();
+			for (const item of soundType[i]) {
 				console.log(item);
 				$(".modal-body").append(
 					$("<div>")
@@ -67,10 +86,16 @@ function renderElements() {
 						.append($("<h4>").text([item]).attr({ class: "text-center" }))
 				);
 			}
+			console.log(i);
 		}
 	});
 
 	$("#close").click(() => {
+		i = 0;
+		$(".modal-body").empty();
+	});
+
+	$(".btn-close").click(() => {
 		i = 0;
 		$(".modal-body").empty();
 	});
