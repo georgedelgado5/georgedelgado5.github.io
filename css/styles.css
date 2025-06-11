@@ -13,6 +13,7 @@
 	--primary: #0d6efd;
 	--accordion-blue: #0c63e4;
 	--accordion-background: #e7f1ff;
+	--yellow: #ffc107;
 }
 
 body {
@@ -75,6 +76,14 @@ h1 {
 
 #meet-the-team .card img {
 	transition: 0.1s ease-in-out;
+}
+
+.modal-body {
+	height: 200px;
+}
+
+.modal-footer {
+	justify-content: center;
 }
 
 footer {

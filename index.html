@@ -93,7 +93,7 @@
 									data-bs-target="#collapseOne"
 									aria-controls="collapseOne"
 								>
-									<strong>Sponsor:<span> Dr. Tim Anderson</span></strong>
+									<h3>Sponsor:<span> Dr. Tim Anderson</span></h3>
 								</button>
 							</h2>
 							<div
@@ -152,7 +152,7 @@
 									data-bs-target="#collapseTwo"
 									aria-controls="collapseTwo"
 								>
-									<strong>Advisor:<span> Dr. Lemmy Meekisho</span></strong>
+									<h3>Advisor:<span> Dr. Lemmy Meekisho</span></h3>
 								</button>
 							</h2>
 							<div
@@ -209,7 +209,7 @@
 								class="card-img-top mx-auto d-block mt-3 rounded-circle"
 							/>
 							<div class="card-body text-center">
-								<h5 class="card-title">George Delgado</h5>
+								<h3 class="card-title">George Delgado</h3>
 								<p class="card-text">
 									Mechanical Engineering and Computer Science Student
 								</p>
@@ -228,7 +228,7 @@
 								/>
 							</div>
 							<div class="card-body text-center">
-								<h5 class="card-title">Joel Castillo</h5>
+								<h4 class="card-title">Joel Castillo</h4>
 								<p class="card-text">Mechanical Engineering Student</p>
 								<p class="card-text">
 									<small class="text-muted"
@@ -252,7 +252,7 @@
 								/>
 							</div>
 							<div class="card-body text-center">
-								<h5 class="card-title">Elmer Yah-Palacios</h5>
+								<h4 class="card-title">Elmer Yah-Palacios</h4>
 								<p class="card-text">Mechanical Engineering Student</p>
 								<p class="card-text">
 									<small class="text-muted"
@@ -275,7 +275,7 @@
 								/>
 							</div>
 							<div class="card-body text-center">
-								<h5 class="card-title">Bea Yochim</h5>
+								<h4 class="card-title">Bea Yochim</h4>
 								<p class="card-text">Mechanical Engineering Student</p>
 								<p class="card-text">
 									<small class="text-muted"
@@ -296,7 +296,7 @@
 				<h2 class="text-center mb-4">Project Details</h2>
 				<div class="row">
 					<div class="col">
-						<div class="card h-100 shadow-sm box">
+						<div class="card h-100 shadow-sm" id="background">
 							<div class="card-body">
 								<h3 class="card-title text-center">Background</h3>
 								<p class="card-text text-left">
@@ -348,10 +348,10 @@
 									<div class="modal-dialog modal-dialog-centered">
 										<div class="modal-content">
 											<div class="modal-header">
-												<h5 class="modal-title" id="staticBackdropLabel">
-													Hearing Processes: Traditional, Hearing Aid, and
-													Cochlear Implant
-												</h5>
+												<h3
+													class="modal-title text-center ms-auto"
+													id="staticBackdropLabel"
+												></h3>
 												<button
 													type="button"
 													class="btn-close"
@@ -359,34 +359,28 @@
 													aria-label="close"
 												></button>
 											</div>
-											<div class="modal-body"></div>
-											<div
-												class="modal-footer d-flex flex-column flex-md-row justify-content-md-center"
-											>
-												<button
-													id="close"
-													type="button"
-													class="btn btn-secondary"
-													data-bs-dismiss="modal"
-													aria-label="close"
+											<div class="modal-body">
+												<div class="container" id="diagram"></div>
+											</div>
+											<div class="modal-footer">
+												<div
+													class="d-flex flex-md-row justify-content-md-center gap-3"
 												>
-													Close
-												</button>
-												<button
-													id="previous-diagram"
-													type="button"
-													class="btn btn-warning"
-												>
-													Previous
-												</button>
-
-												<button
-													id="next-diagram"
-													type="button"
-													class="btn btn-success"
-												>
-													Next
-												</button>
+													<button
+														id="previous-diagram"
+														type="button"
+														class="btn btn-warning"
+													>
+														Previous
+													</button>
+													<button
+														id="next-diagram"
+														type="button"
+														class="btn btn-success"
+													>
+														Next
+													</button>
+												</div>
 											</div>
 										</div>
 									</div>

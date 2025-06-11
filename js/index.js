@@ -15,24 +15,17 @@ function fetchData(url) {
 }
 
 const $doc = $(document);
-const $box = $(".box");
 
 $doc.ready(() => {
-	webEffects();
 	renderElements();
+	webEffects();
 });
 
 function renderElements() {
 	const soundType = [
 		["Sound Waves", "Hair Cells", "Nerve Signals", "Cochlea"],
 
-		[
-			"Sound Waves",
-			"Hearing Aid - Amplify Sound",
-			"Hair Cells",
-			"Nerve Signals",
-			"Cochlea",
-		],
+		["Sound Waves", "Aid Amplifies", "Hair Cells", "Nerve Signals", "Cochlea"],
 
 		[
 			"Sound Waves",
@@ -43,61 +36,110 @@ function renderElements() {
 		],
 	];
 
+	const soundLabel = ["Normal Hearing", "Hearing Aid", "Cochlear Implant"];
+
 	let i = 0;
+	let j = 0;
 	$("#hearing-processes").click(function () {
 		console.log("soundType", soundType);
 		for (const item of soundType[i]) {
+			++j;
 			console.log(item);
-			$(".modal-body").append(
+			$("#diagram").append(
 				$("<div>")
-					.attr({ class: "container h-100 shadow-sm border border-dark" })
+					.attr({
+						class:
+							"container shadow-sm border border-dark position-absolute top-0 start-0",
+					})
+					.attr({ id: `modal-diagram-${i}-${j}` })
+					.css("z-index", soundType.length * 2 - j)
+					.css({ backgroundColor: "var(--off-white)" })
 					.append($("<h4>").text([item]).attr({ class: "text-center" }))
 			);
+
+			$(".modal-title").text(`${soundLabel[i]}`);
+			anime({
+				targets: `#modal-diagram-${i}-${j}`,
+				translateY: [0, -36 + j * 38],
+				duration: 1800,
+				easing: "easeInOutQuad",
+			});
 		}
+
 		console.log(i);
 	});
 
 	$("#next-diagram").click(() => {
+		j = 0;
 		if (i < soundType.length - 1) {
 			i++;
-			$(".modal-body").empty();
+			$("#diagram").empty();
 			for (const item of soundType[i]) {
 				console.log(item);
-
-				$(".modal-body").append(
+				++j;
+				$("#diagram").append(
 					$("<div>")
-						.attr({ class: "container h-100 shadow-sm border border-dark" })
+						.attr({
+							class:
+								"container shadow-sm border border-dark position-absolute top-0 start-0",
+						})
+						.attr({ id: `modal-diagram-${i}-${j}` })
+						.css("z-index", soundType.length * 2 - j)
+						.css({ backgroundColor: "var(--off-white)" })
 						.append($("<h4>").text([item]).attr({ class: "text-center" }))
 				);
+
+				$(".modal-title").text(`${soundLabel[i]}`);
+
+				$(".modal-title").text(`${soundLabel[i]}`);
+				anime({
+					targets: `#modal-diagram-${i}-${j}`,
+					translateY: [0, -36 + j * 38],
+					duration: 1800,
+					easing: "easeInOutQuad",
+				});
 			}
 			console.log(i);
 		}
 	});
 
 	$("#previous-diagram").click(() => {
+		j = 0;
 		if (i > 0) {
 			i--;
-			$(".modal-body").empty();
+			$("#diagram").empty();
 			for (const item of soundType[i]) {
+				++j;
 				console.log(item);
-				$(".modal-body").append(
+				$("#diagram").append(
 					$("<div>")
-						.attr({ class: "container h-100 shadow-sm border border-dark" })
+						.attr({
+							class:
+								"container  shadow-sm border border-dark position-absolute top-0 start-0",
+						})
+						.attr({ id: `modal-diagram-${i}-${j}` })
+						.css("z-index", soundType.length * 2 - j)
+						.css({ backgroundColor: "var(--off-white)" })
 						.append($("<h4>").text([item]).attr({ class: "text-center" }))
 				);
+
+				$(".modal-title").text(`${soundLabel[i]}`);
+
+				anime({
+					targets: `#modal-diagram-${i}-${j}`,
+					translateY: [0, -36 + j * 38],
+					duration: 1800,
+					easing: "easeInOutQuad",
+				});
 			}
 			console.log(i);
 		}
 	});
 
-	$("#close").click(() => {
-		i = 0;
-		$(".modal-body").empty();
-	});
-
 	$(".btn-close").click(() => {
 		i = 0;
-		$(".modal-body").empty();
+		j = 0;
+		$("#diagram").empty();
 	});
 }
 
@@ -110,12 +152,4 @@ function webEffects() {
 			$image.css("border", "none");
 		}
 	});
-	// $box.click(function () {
-	// 	anime({
-	// 		targets: ".box",
-	// 		translateX: [35, -35, 0],
-	// 		duration: 2200,
-	// 		easing: "easeInOutQuad",
-	// 	});
-	// });
 }
