@@ -292,10 +292,100 @@
 		</section>
 
 		<section id="project-details" class="py-5">
-			<div class="container content-card box">
+			<div class="container content-card">
 				<h2 class="text-center mb-4">Project Details</h2>
 				<div class="row">
-					<div class="col-md-6"></div>
+					<div class="col">
+						<div class="card h-100 shadow-sm box">
+							<div class="card-body">
+								<h3 class="card-title text-center">Background</h3>
+								<p class="card-text text-left">
+									A cochlear implant is an electronic device that provides
+									hearing for those with severe hearing loss due to inner ear
+									damage. It bypasses the damaged part of the inner ear and
+									directly stimulates the auditory nerve. The Rondo system by
+									MED-EL consists of an external processor and an internal
+									implant. The Rondo 3 model rests behind the ear, magnetically
+									secured, and requires precise positioning on a Qi charger to
+									recharge.
+								</p>
+								<p class="card-text text-left">
+									Charging is often disrupted due to the device's convex shape,
+									which leads to misalignment with the charging pad. Even slight
+									bumps or misplacements can interrupt the charge cycle,
+									frustrating users and compromising device reliability.
+								</p>
+								<p class="card-text text-left">
+									This project originated from a forum post by our sponsor, Dr.
+									Tim Anderson, who also uses the Rondo system. His personal
+									experiences and data from the HearPeers community helped
+									define design parameters for a more stable and adaptable
+									charging retainer that could serve both Rondo 2 and Rondo 3
+									users.
+								</p>
+								<div
+									class="d-flex flex-column flex-md-row justify-content-md-center"
+								>
+									<button
+										type="button "
+										id="hearing-processes"
+										class="btn btn-primary"
+										data-bs-toggle="modal"
+										data-bs-target="#staticBackdrop"
+									>
+										Hearing Processes
+									</button>
+								</div>
+								<div
+									class="modal fade"
+									id="staticBackdrop"
+									data-bs-backdrop="static"
+									data-bs-keyboard="false"
+									tabindex="-1"
+									aria-labelledby="staticBackdropLabel"
+									aria-hidden="true"
+								>
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="staticBackdropLabel">
+													Hearing Processes: Traditional, Hearing Aid, and
+													Cochlear Implant
+												</h5>
+												<button
+													type="button"
+													class="btn-close"
+													data-bs-dismiss="modal"
+													aria-label="close"
+												></button>
+											</div>
+											<div class="modal-body"></div>
+											<div
+												class="modal-footer d-flex flex-column flex-md-row justify-content-md-center"
+											>
+												<button
+													id="close"
+													type="button"
+													class="btn btn-secondary"
+													data-bs-dismiss="modal"
+													aria-label="close"
+												>
+													Close
+												</button>
+												<button
+													id="next-diagram"
+													type="button"
+													class="btn btn-success"
+												>
+													Next
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -309,7 +399,7 @@
 							Have questions about Project Rondeo or interested in connecting
 							with our team? Please fill out the form below.
 						</p>
-						<form id="contact-form">
+						<form id="contact-form ">
 							<div class="mb-3">
 								<label for="name" class="form-label">Name</label>
 								<input type="text" class="form-control" id="name" />

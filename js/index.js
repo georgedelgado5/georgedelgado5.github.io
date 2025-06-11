@@ -1,20 +1,5 @@
 import anime from "https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.es.js";
 
-//used to add border around team members
-function hoverHighlight() {
-	$(document).ready(() => {
-		$(".card").on("mouseenter mouseleave", function (event) {
-			const $image = $(this).find("img");
-			if (event.type === "mouseenter") {
-				$image.css("border", "4px solid var(--primary)");
-			} else {
-				$image.css("border", "none");
-			}
-		});
-	});
-}
-hoverHighlight();
-
 const url = "https://www.medel.com/en-us/digital-showroom#rondo3";
 
 //need to finish function
@@ -29,16 +14,83 @@ function fetchData(url) {
 		});
 }
 
-//just testing using animejs - very fun
-function animateSlides() {
-	window.addEventListener("click", () => {
-		anime({
-			targets: ".box",
-			translateX: [90, -90, 0],
-			duration: 3600,
-			easing: "easeInOutQuad",
-		});
+const $doc = $(document);
+const $box = $(".box");
+
+$doc.ready(() => {
+	webEffects();
+	renderElements();
+});
+
+function renderElements() {
+	const soundType = [
+		["Sound Waves", "Hair Cells", "Nerve Signals", "Cochlea"],
+
+		[
+			"Sound Waves",
+			"Hearing Aid - Amplify Sound",
+			"Hair Cells",
+			"Nerve Signals",
+			"Cochlea",
+		],
+
+		[
+			"Sound Waves",
+			"Rondo 3",
+			"Cochlear Implant",
+			"Electrode Array",
+			"Cochlea",
+		],
+	];
+
+	let i = 0;
+	$("#hearing-processes").click(function () {
+		console.log("soundType", soundType);
+		for (const item of soundType[i++]) {
+			console.log(item);
+			$(".modal-body").append(
+				$("<div>")
+					.attr({ class: "container h-100 shadow-sm border border-dark" })
+					.append($("<h4>").text([item]).attr({ class: "text-center" }))
+			);
+		}
+	});
+
+	$("#next-diagram").click(() => {
+		if (i < soundType.length) {
+			$(".modal-body").empty();
+			for (const item of soundType[i++]) {
+				console.log(item);
+				$(".modal-body").append(
+					$("<div>")
+						.attr({ class: "container h-100 shadow-sm border border-dark" })
+						.append($("<h4>").text([item]).attr({ class: "text-center" }))
+				);
+			}
+		}
+	});
+
+	$("#close").click(() => {
+		i = 0;
+		$(".modal-body").empty();
 	});
 }
 
-animateSlides();
+function webEffects() {
+	$(".card").on("mouseenter mouseleave", function (event) {
+		const $image = $(this).find("img");
+		if (event.type === "mouseenter") {
+			$image.css("border", "4px solid var(--primary)");
+		} else {
+			$image.css("border", "none");
+		}
+	});
+	// $box.click(function () {
+	// 	anime({
+	// 		targets: ".box",
+	// 		translateX: [35, -35, 0],
+	// 		duration: 2200,
+	// 		easing: "easeInOutQuad",
+	// 	});
+	// });
+}
