@@ -17,6 +17,23 @@ function teamEffects() {
 			$image.css("border", "none");
 		}
 	});
+
+	const socialIcons = [
+		"./images/linkedin_icon.png",
+		"./images/gmail_icon.png",
+		"./images/github_icon.png",
+		"./images/instagram_icon.png",
+	];
+
+	const person = $("#meet-the-team").find(".col");
+
+	person.click(function () {
+		$(".card-body").append($("<div>").attr({ id: `social` }));
+		for (const item of socialIcons) {
+			console.log(item);
+			$("#social").append($("<img>").attr({ src: `${item}` }));
+		}
+	});
 }
 
 function createButton() {
@@ -86,6 +103,7 @@ function renderDiagram() {
 			);
 
 			$(".modal-title").text(`${soundLabel[i]}`);
+
 			anime({
 				targets: `#modal-diagram-${i}-${j}`,
 				translateY: [0, -36 + j * 38],

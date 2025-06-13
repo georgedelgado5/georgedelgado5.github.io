@@ -114,3 +114,8 @@ footer {
 	background-color: var(--key-purple-darker);
 	transform: translateY(-2px);
 }
+
+#social img {
+	width: 32px;
+	height: 32px;
+}
