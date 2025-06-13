@@ -9,8 +9,10 @@ $doc.ready(() => {
 });
 
 function teamEffects() {
-	$(".card").on("mouseenter mouseleave", function (event) {
-		const $image = $(this).find("img");
+	const $person = $("#meet-the-team").find(".col");
+
+	$person.on("mouseenter mouseleave", function (event) {
+		const $image = $(this).find(".card-img-top");
 		if (event.type === "mouseenter") {
 			$image.css("border", "4px solid var(--primary)");
 		} else {
@@ -22,13 +24,13 @@ function teamEffects() {
 		"./images/linkedin_icon.png",
 		"./images/gmail_icon.png",
 		"./images/github_icon.png",
-		"./images/instagram_icon.png",
+		// "./images/instagram_icon.png",
 	];
 
-	const person = $("#meet-the-team").find(".col");
-
-	person.click(function () {
-		$(".card-body").append($("<div>").attr({ id: `social` }));
+	$person.click(function () {
+		$(this)
+			// .find(".card-body")
+			.append($("<div>").attr({ id: `social` }));
 		for (const item of socialIcons) {
 			console.log(item);
 			$("#social").append($("<img>").attr({ src: `${item}` }));
