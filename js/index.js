@@ -19,7 +19,7 @@ function teamEffects() {
 			$image.css("border", "none");
 		}
 	});
-
+	/*
 	const socialIcons = [
 		"./images/linkedin_icon.png",
 		"./images/gmail_icon.png",
@@ -36,6 +36,7 @@ function teamEffects() {
 			$("#social").append($("<img>").attr({ src: `${item}` }));
 		}
 	});
+	*/
 }
 
 function createButton() {
